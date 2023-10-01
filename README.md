@@ -2,6 +2,10 @@
 
 libheif 提供 在线预览的例子 https://strukturag.github.io/libheif/
 
+## 在线预览体验
+
+在线预览体验 https://docs.ffffee.com/wasm/2-libheif-decode-heic-img.html#在线预览体验
+
 ## 1. 自己构建 wasm 或者使用 在线例子的 wasm
 
 尝试构建失败了，故 这里使用它已经构建好的例子，通过修改例子源码得到我们自己的代码
@@ -312,11 +316,3 @@ protocol.registerSchemesAsPrivileged([
   },
 ]);
 ```
-
-## 源码地址
-
-https://github.com/xieerduos/libheif-wasm-sample
-
-## 在线预览体验
-
-在线预览体验 https://docs.ffffee.com/wasm/2-libheif-decode-heic-img.html
