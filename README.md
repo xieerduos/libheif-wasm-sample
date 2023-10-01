@@ -74,6 +74,10 @@ var Module = typeof Module != "undefined" ? Module : {};
 });
 ```
 
+![whenready-1.png](whenready-1.png)
+
+![whenready-2.png](whenready-2.png)
+
 ### 4. 创建 index.html
 
 ```html
