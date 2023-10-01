@@ -8,6 +8,20 @@ libheif 提供 在线预览的例子 https://strukturag.github.io/libheif/
 
 最新文档 https://docs.ffffee.com/wasm/2-libheif-decode-heic-img.html
 
+## 本地启动
+
+```bash
+npm install
+```
+
+```bash
+npm start
+```
+
+http://localhost:8080
+
+## 日志记录
+
 ### 1. 自己构建 wasm 或者使用 在线例子的 wasm
 
 尝试构建失败了，故 这里使用它已经构建好的例子，通过修改例子源码得到我们自己的代码
@@ -301,9 +315,17 @@ class CanvasDrawer {
 }
 ```
 
-## 在浏览器运行 index.html 就可以
+## 本地运行
 
-1. web 上运行，直接就可以 需要 使用 http/https 服务
+1. web 上运行，需要 使用 http/https 服务
+
+```bash
+npm install
+```
+
+```bash
+npm start
+```
 
 2. electron 上运行，需要支持 自定义协议允许 fetch api
 
