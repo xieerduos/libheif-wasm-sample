@@ -1,4 +1,4 @@
-# 使用 libheif 库解码 heic 图片
+# WebAssembly 使用 libheif 库解码 heic 图片
 
 libheif 提供 在线预览的例子 https://strukturag.github.io/libheif/
 
