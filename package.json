@@ -1,0 +1,25 @@
+{
+  "name": "libheif-wasm-sample",
+  "version": "1.0.0",
+  "description": "使用libheif库的WebAssembly解码heic图片例子",
+  "main": "libheif.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "解码heic图片",
+    "heic",
+    "wasm",
+    "webassembly",
+    "webworker-wasm",
+    "electron-heic",
+    "electron-heif"
+  ],
+  "author": "李钟意 <coder.zhongyi.li@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xieerduos/libheif-wasm-sample.git"
+  },
+  "homepage": "https://github.com/xieerduos/libheif-wasm-sample"
+}

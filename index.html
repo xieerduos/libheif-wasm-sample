@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>heif web worker sample</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      max-width: 80vw;
+      max-height: 80vh;
+    }
+
+    #upload {
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="file" id="upload" accept=".heic,.heif" />
+
+  <div id="container"></div>
+
+  <script>
+    const heifWorker = new Worker("./heifWorker.js");
+    const upload = document.getElementById('upload');
+    const container = document.querySelector('#container');
+
+    const handleRemoveImage = () => {
+      while (container.firstChild) {
+        container.removeChild(container.firstChild)
+      }
+    }
+
+    upload.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const fileUrl = URL.createObjectURL(file);
+      handleRemoveImage();
+      handleWasm(fileUrl);
+    })
+
+    window.onload = () => {
+      handleRemoveImage();
+      handleWasm('example1.heic');
+    };
+
+    function handleWasm(imgURL) {
+      return useHeifWasm(imgURL)
+        .then((dataUrl) => {
+          const img = document.createElement("img");
+          // 成功加载或加载失败都会释放对象 URL
+          const onFinished = () => {
+            URL.revokeObjectURL(dataUrl)
+            URL.revokeObjectURL(imgURL)
+          };
+          img.onload = onFinished; // 成功加载
+          img.onerror = onFinished; // 加载失败
+          img.src = dataUrl;
+          container.appendChild(img);
+        })
+        .catch((err) => {
+          console.error("error", err);
+        });
+    }
+
+    async function useHeifWasm(url, callback = () => { }) {
+      try {
+        return new Promise((resolve, reject) => {
+          heifWorker.postMessage({ url });
+
+          heifWorker.onmessage = function (message) {
+            callback("decoding");
+
+            if (message.data === "error") {
+              console.error("Error occurred in worker");
+              reject(new Error("Error occurred in worker"));
+              return;
+            }
+            const dataUrl = message.data;
+
+            resolve(dataUrl);
+          };
+        });
+      } catch (error) {
+        console.error("[useHeifWasm error]", error);
+        throw error;
+      }
+    }
+  </script>
+</body>
+
+</html>
