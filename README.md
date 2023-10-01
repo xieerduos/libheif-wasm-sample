@@ -4,18 +4,20 @@ libheif 提供 在线预览的例子 https://strukturag.github.io/libheif/
 
 ## 在线预览体验
 
-在线预览体验 https://docs.ffffee.com/wasm/2-libheif-decode-heic-img.html#在线预览体验
+在线预览体验 https://docs.ffffee.com/wasm/libheif/index.html
 
-## 1. 自己构建 wasm 或者使用 在线例子的 wasm
+最新文档 https://docs.ffffee.com/wasm/2-libheif-decode-heic-img.html
+
+### 1. 自己构建 wasm 或者使用 在线例子的 wasm
 
 尝试构建失败了，故 这里使用它已经构建好的例子，通过修改例子源码得到我们自己的代码
 
-## 2. 下载 libheif.js libheif.wasm
+### 2. 下载 libheif.js libheif.wasm
 
 <a href="https://strukturag.github.io/libheif/libheif.wasm" target="_blank">https://strukturag.github.io/libheif/libheif.wasm</a>
 <a href="https://strukturag.github.io/libheif/libheif.js" target="_blank">https://strukturag.github.io/libheif/libheif.js</a>
 
-## 3. 修改 libheif.js 增加 whenReady Promise
+### 3. 修改 libheif.js 增加 whenReady Promise
 
 ```js{3-6, 8-10 }
 var Module = typeof Module != "undefined" ? Module : {};
@@ -49,7 +51,7 @@ var Module = typeof Module != "undefined" ? Module : {};
 });
 ```
 
-## 4. 创建 index.html
+### 4. 创建 index.html
 
 ```html
 <!DOCTYPE html>
@@ -155,7 +157,7 @@ var Module = typeof Module != "undefined" ? Module : {};
 </html>
 ```
 
-## 5. heifWorker.js
+### 5. heifWorker.js
 
 ```js
 importScripts("./libheif.js"); // eslint-disable-line
@@ -245,7 +247,7 @@ onmessage = async function (e) {
 };
 ```
 
-## 6. CanvasDrawer.js
+### 6. CanvasDrawer.js
 
 ```js
 class CanvasDrawer {
