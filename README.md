@@ -11,6 +11,15 @@ libheif 提供 在线预览的例子 https://strukturag.github.io/libheif/
 ## 本地启动
 
 ```bash
+git clone https://github.com/xieerduos/libheif-wasm-sample.git
+
+```
+
+```bash
+cd libheif-wasm-sample
+```
+
+```bash
 npm install
 ```
 
@@ -315,19 +324,9 @@ class CanvasDrawer {
 }
 ```
 
-## 本地运行
+## electron 支持
 
-1. web 上运行，需要 使用 http/https 服务
-
-```bash
-npm install
-```
-
-```bash
-npm start
-```
-
-2. electron 上运行，需要支持 自定义协议允许 fetch api
+electron 上运行 WebAssembly .wasm 文件，需要支持 自定义协议允许 fetch api
 
 增加 `supportFetchAPI: true`
 
